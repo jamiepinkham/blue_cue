@@ -7,13 +7,20 @@
 //
 
 #import "BCUAppDelegate.h"
+#import "BCUViewController.h"
 
 @implementation BCUAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    return YES;
+	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	
+	BCUViewController *vc = [[BCUViewController alloc] initWithNibName:@"BCUViewController" bundle:nil];
+	
+	self.window.rootViewController= vc;
+	[self.window makeKeyAndVisible];
+    
+	return YES;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

@@ -7,33 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		505B64FB17E291D0002A0362 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 505B64FA17E291D0002A0362 /* CoreLocation.framework */; };
+		509FD89317E2016900F105C7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 509FD89217E2016900F105C7 /* Cocoa.framework */; };
+		509FD89517E201A900F105C7 /* IOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 509FD89417E201A900F105C7 /* IOBluetooth.framework */; };
+		509FD89617E201BB00F105C7 /* BCUServiceIdentifiers.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CF352717E1F4160072D883 /* BCUServiceIdentifiers.m */; };
+		509FD89C17E208BA00F105C7 /* BCUScanController.m in Sources */ = {isa = PBXBuildFile; fileRef = 509FD89B17E208BA00F105C7 /* BCUScanController.m */; };
 		50CF34EB17E1F27B0072D883 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50CF34EA17E1F27B0072D883 /* Foundation.framework */; };
 		50CF34ED17E1F27B0072D883 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50CF34EC17E1F27B0072D883 /* CoreGraphics.framework */; };
 		50CF34EF17E1F27B0072D883 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50CF34EE17E1F27B0072D883 /* UIKit.framework */; };
 		50CF34F517E1F27B0072D883 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50CF34F317E1F27B0072D883 /* InfoPlist.strings */; };
 		50CF34F717E1F27B0072D883 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CF34F617E1F27B0072D883 /* main.m */; };
 		50CF34FB17E1F27B0072D883 /* BCUAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CF34FA17E1F27B0072D883 /* BCUAppDelegate.m */; };
-		50CF34FE17E1F27B0072D883 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50CF34FC17E1F27B0072D883 /* Main.storyboard */; };
 		50CF350117E1F27B0072D883 /* BCUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CF350017E1F27B0072D883 /* BCUViewController.m */; };
 		50CF350317E1F27B0072D883 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50CF350217E1F27B0072D883 /* Images.xcassets */; };
-		50CF350A17E1F27B0072D883 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50CF350917E1F27B0072D883 /* XCTest.framework */; };
-		50CF350B17E1F27B0072D883 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50CF34EA17E1F27B0072D883 /* Foundation.framework */; };
-		50CF350C17E1F27B0072D883 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50CF34EE17E1F27B0072D883 /* UIKit.framework */; };
-		50CF351417E1F27B0072D883 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50CF351217E1F27B0072D883 /* InfoPlist.strings */; };
-		50CF351617E1F27B0072D883 /* BlueCue_iPhoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CF351517E1F27B0072D883 /* BlueCue_iPhoneTests.m */; };
+		50CF352017E1F2890072D883 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50CF351F17E1F2890072D883 /* CoreBluetooth.framework */; };
+		50CF352217E1F37C0072D883 /* BCUViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50CF352117E1F37C0072D883 /* BCUViewController.xib */; };
+		50CF352517E1F3A60072D883 /* BCUBroadcastController.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CF352417E1F3A60072D883 /* BCUBroadcastController.m */; };
+		50CF352817E1F4160072D883 /* BCUServiceIdentifiers.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CF352717E1F4160072D883 /* BCUServiceIdentifiers.m */; };
+		50CF352A17E1F9CF0072D883 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50CF352917E1F9CF0072D883 /* MediaPlayer.framework */; };
+		50CF353B17E2006C0072D883 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 50CF353917E2006C0072D883 /* InfoPlist.strings */; };
+		50CF353D17E2006C0072D883 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CF353C17E2006C0072D883 /* main.m */; };
+		50CF354117E2006C0072D883 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 50CF353F17E2006C0072D883 /* Credits.rtf */; };
+		50CF354417E2006C0072D883 /* BCUAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50CF354317E2006C0072D883 /* BCUAppDelegate.m */; };
+		50CF354717E2006C0072D883 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50CF354517E2006C0072D883 /* MainMenu.xib */; };
+		50CF354917E2006C0072D883 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50CF354817E2006C0072D883 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		50CF350D17E1F27B0072D883 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 50CF34DF17E1F27B0072D883 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 50CF34E617E1F27B0072D883;
-			remoteInfo = "BlueCue iPhone";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		505B64FA17E291D0002A0362 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		505B64FC17E2BE62002A0362 /* iTunes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunes.h; sourceTree = "<group>"; };
+		509FD89217E2016900F105C7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		509FD89417E201A900F105C7 /* IOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetooth.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/IOBluetooth.framework; sourceTree = DEVELOPER_DIR; };
+		509FD89A17E208BA00F105C7 /* BCUScanController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCUScanController.h; sourceTree = "<group>"; };
+		509FD89B17E208BA00F105C7 /* BCUScanController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCUScanController.m; sourceTree = "<group>"; };
 		50CF34E717E1F27B0072D883 /* BlueCue iPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BlueCue iPhone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50CF34EA17E1F27B0072D883 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		50CF34EC17E1F27B0072D883 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -44,15 +50,30 @@
 		50CF34F817E1F27B0072D883 /* BlueCue iPhone-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BlueCue iPhone-Prefix.pch"; sourceTree = "<group>"; };
 		50CF34F917E1F27B0072D883 /* BCUAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCUAppDelegate.h; sourceTree = "<group>"; };
 		50CF34FA17E1F27B0072D883 /* BCUAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCUAppDelegate.m; sourceTree = "<group>"; };
-		50CF34FD17E1F27B0072D883 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		50CF34FF17E1F27B0072D883 /* BCUViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCUViewController.h; sourceTree = "<group>"; };
 		50CF350017E1F27B0072D883 /* BCUViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCUViewController.m; sourceTree = "<group>"; };
 		50CF350217E1F27B0072D883 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		50CF350817E1F27B0072D883 /* BlueCue iPhoneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BlueCue iPhoneTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50CF350917E1F27B0072D883 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		50CF351117E1F27B0072D883 /* BlueCue iPhoneTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BlueCue iPhoneTests-Info.plist"; sourceTree = "<group>"; };
-		50CF351317E1F27B0072D883 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		50CF351517E1F27B0072D883 /* BlueCue_iPhoneTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlueCue_iPhoneTests.m; sourceTree = "<group>"; };
+		50CF351F17E1F2890072D883 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		50CF352117E1F37C0072D883 /* BCUViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BCUViewController.xib; sourceTree = "<group>"; };
+		50CF352317E1F3A60072D883 /* BCUBroadcastController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCUBroadcastController.h; sourceTree = "<group>"; };
+		50CF352417E1F3A60072D883 /* BCUBroadcastController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCUBroadcastController.m; sourceTree = "<group>"; };
+		50CF352617E1F4160072D883 /* BCUServiceIdentifiers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCUServiceIdentifiers.h; sourceTree = "<group>"; };
+		50CF352717E1F4160072D883 /* BCUServiceIdentifiers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCUServiceIdentifiers.m; sourceTree = "<group>"; };
+		50CF352917E1F9CF0072D883 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		50CF352F17E2006C0072D883 /* BlueCue Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BlueCue Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		50CF353317E2006C0072D883 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		50CF353417E2006C0072D883 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		50CF353517E2006C0072D883 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		50CF353817E2006C0072D883 /* BlueCue Mac-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BlueCue Mac-Info.plist"; sourceTree = "<group>"; };
+		50CF353A17E2006C0072D883 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		50CF353C17E2006C0072D883 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		50CF353E17E2006C0072D883 /* BlueCue Mac-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BlueCue Mac-Prefix.pch"; sourceTree = "<group>"; };
+		50CF354017E2006C0072D883 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		50CF354217E2006C0072D883 /* BCUAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCUAppDelegate.h; sourceTree = "<group>"; };
+		50CF354317E2006C0072D883 /* BCUAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BCUAppDelegate.m; sourceTree = "<group>"; };
+		50CF354617E2006C0072D883 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		50CF354817E2006C0072D883 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,19 +81,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				505B64FB17E291D0002A0362 /* CoreLocation.framework in Frameworks */,
+				50CF352A17E1F9CF0072D883 /* MediaPlayer.framework in Frameworks */,
+				50CF352017E1F2890072D883 /* CoreBluetooth.framework in Frameworks */,
 				50CF34ED17E1F27B0072D883 /* CoreGraphics.framework in Frameworks */,
 				50CF34EF17E1F27B0072D883 /* UIKit.framework in Frameworks */,
 				50CF34EB17E1F27B0072D883 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		50CF350517E1F27B0072D883 /* Frameworks */ = {
+		50CF352C17E2006C0072D883 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50CF350A17E1F27B0072D883 /* XCTest.framework in Frameworks */,
-				50CF350C17E1F27B0072D883 /* UIKit.framework in Frameworks */,
-				50CF350B17E1F27B0072D883 /* Foundation.framework in Frameworks */,
+				509FD89517E201A900F105C7 /* IOBluetooth.framework in Frameworks */,
+				509FD89317E2016900F105C7 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,8 +105,10 @@
 		50CF34DE17E1F27B0072D883 = {
 			isa = PBXGroup;
 			children = (
+				50CF352617E1F4160072D883 /* BCUServiceIdentifiers.h */,
+				50CF352717E1F4160072D883 /* BCUServiceIdentifiers.m */,
 				50CF34F017E1F27B0072D883 /* BlueCue iPhone */,
-				50CF350F17E1F27B0072D883 /* BlueCue iPhoneTests */,
+				50CF353617E2006C0072D883 /* BlueCue Mac */,
 				50CF34E917E1F27B0072D883 /* Frameworks */,
 				50CF34E817E1F27B0072D883 /* Products */,
 			);
@@ -93,7 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				50CF34E717E1F27B0072D883 /* BlueCue iPhone.app */,
-				50CF350817E1F27B0072D883 /* BlueCue iPhoneTests.xctest */,
+				50CF352F17E2006C0072D883 /* BlueCue Mac.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,10 +126,16 @@
 		50CF34E917E1F27B0072D883 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				505B64FA17E291D0002A0362 /* CoreLocation.framework */,
+				509FD89417E201A900F105C7 /* IOBluetooth.framework */,
+				509FD89217E2016900F105C7 /* Cocoa.framework */,
+				50CF352917E1F9CF0072D883 /* MediaPlayer.framework */,
+				50CF351F17E1F2890072D883 /* CoreBluetooth.framework */,
 				50CF34EA17E1F27B0072D883 /* Foundation.framework */,
 				50CF34EC17E1F27B0072D883 /* CoreGraphics.framework */,
 				50CF34EE17E1F27B0072D883 /* UIKit.framework */,
 				50CF350917E1F27B0072D883 /* XCTest.framework */,
+				50CF353217E2006C0072D883 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -114,11 +145,13 @@
 			children = (
 				50CF34F917E1F27B0072D883 /* BCUAppDelegate.h */,
 				50CF34FA17E1F27B0072D883 /* BCUAppDelegate.m */,
-				50CF34FC17E1F27B0072D883 /* Main.storyboard */,
 				50CF34FF17E1F27B0072D883 /* BCUViewController.h */,
 				50CF350017E1F27B0072D883 /* BCUViewController.m */,
+				50CF352117E1F37C0072D883 /* BCUViewController.xib */,
 				50CF350217E1F27B0072D883 /* Images.xcassets */,
 				50CF34F117E1F27B0072D883 /* Supporting Files */,
+				50CF352317E1F3A60072D883 /* BCUBroadcastController.h */,
+				50CF352417E1F3A60072D883 /* BCUBroadcastController.m */,
 			);
 			path = "BlueCue iPhone";
 			sourceTree = "<group>";
@@ -134,20 +167,39 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		50CF350F17E1F27B0072D883 /* BlueCue iPhoneTests */ = {
+		50CF353217E2006C0072D883 /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				50CF351517E1F27B0072D883 /* BlueCue_iPhoneTests.m */,
-				50CF351017E1F27B0072D883 /* Supporting Files */,
+				50CF353317E2006C0072D883 /* AppKit.framework */,
+				50CF353417E2006C0072D883 /* CoreData.framework */,
+				50CF353517E2006C0072D883 /* Foundation.framework */,
 			);
-			path = "BlueCue iPhoneTests";
+			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		50CF351017E1F27B0072D883 /* Supporting Files */ = {
+		50CF353617E2006C0072D883 /* BlueCue Mac */ = {
 			isa = PBXGroup;
 			children = (
-				50CF351117E1F27B0072D883 /* BlueCue iPhoneTests-Info.plist */,
-				50CF351217E1F27B0072D883 /* InfoPlist.strings */,
+				505B64FC17E2BE62002A0362 /* iTunes.h */,
+				50CF354217E2006C0072D883 /* BCUAppDelegate.h */,
+				50CF354317E2006C0072D883 /* BCUAppDelegate.m */,
+				50CF354517E2006C0072D883 /* MainMenu.xib */,
+				50CF354817E2006C0072D883 /* Images.xcassets */,
+				50CF353717E2006C0072D883 /* Supporting Files */,
+				509FD89A17E208BA00F105C7 /* BCUScanController.h */,
+				509FD89B17E208BA00F105C7 /* BCUScanController.m */,
+			);
+			path = "BlueCue Mac";
+			sourceTree = "<group>";
+		};
+		50CF353717E2006C0072D883 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				50CF353817E2006C0072D883 /* BlueCue Mac-Info.plist */,
+				50CF353917E2006C0072D883 /* InfoPlist.strings */,
+				50CF353C17E2006C0072D883 /* main.m */,
+				50CF353E17E2006C0072D883 /* BlueCue Mac-Prefix.pch */,
+				50CF353F17E2006C0072D883 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -172,23 +224,22 @@
 			productReference = 50CF34E717E1F27B0072D883 /* BlueCue iPhone.app */;
 			productType = "com.apple.product-type.application";
 		};
-		50CF350717E1F27B0072D883 /* BlueCue iPhoneTests */ = {
+		50CF352E17E2006C0072D883 /* BlueCue Mac */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 50CF351C17E1F27B0072D883 /* Build configuration list for PBXNativeTarget "BlueCue iPhoneTests" */;
+			buildConfigurationList = 50CF355B17E2006C0072D883 /* Build configuration list for PBXNativeTarget "BlueCue Mac" */;
 			buildPhases = (
-				50CF350417E1F27B0072D883 /* Sources */,
-				50CF350517E1F27B0072D883 /* Frameworks */,
-				50CF350617E1F27B0072D883 /* Resources */,
+				50CF352B17E2006C0072D883 /* Sources */,
+				50CF352C17E2006C0072D883 /* Frameworks */,
+				50CF352D17E2006C0072D883 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				50CF350E17E1F27B0072D883 /* PBXTargetDependency */,
 			);
-			name = "BlueCue iPhoneTests";
-			productName = "BlueCue iPhoneTests";
-			productReference = 50CF350817E1F27B0072D883 /* BlueCue iPhoneTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
+			name = "BlueCue Mac";
+			productName = "BlueCue Mac";
+			productReference = 50CF352F17E2006C0072D883 /* BlueCue Mac.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -200,12 +251,12 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Jamie Pinkham";
 				TargetAttributes = {
-					50CF350717E1F27B0072D883 = {
-						TestTargetID = 50CF34E617E1F27B0072D883;
+					50CF34E617E1F27B0072D883 = {
+						DevelopmentTeam = 8V65H7A5Z6;
 					};
 				};
 			};
-			buildConfigurationList = 50CF34E217E1F27B0072D883 /* Build configuration list for PBXProject "BlueCue iPhone" */;
+			buildConfigurationList = 50CF34E217E1F27B0072D883 /* Build configuration list for PBXProject "BlueCue" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -219,7 +270,7 @@
 			projectRoot = "";
 			targets = (
 				50CF34E617E1F27B0072D883 /* BlueCue iPhone */,
-				50CF350717E1F27B0072D883 /* BlueCue iPhoneTests */,
+				50CF352E17E2006C0072D883 /* BlueCue Mac */,
 			);
 		};
 /* End PBXProject section */
@@ -229,17 +280,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50CF352217E1F37C0072D883 /* BCUViewController.xib in Resources */,
 				50CF350317E1F27B0072D883 /* Images.xcassets in Resources */,
 				50CF34F517E1F27B0072D883 /* InfoPlist.strings in Resources */,
-				50CF34FE17E1F27B0072D883 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		50CF350617E1F27B0072D883 /* Resources */ = {
+		50CF352D17E2006C0072D883 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50CF351417E1F27B0072D883 /* InfoPlist.strings in Resources */,
+				50CF353B17E2006C0072D883 /* InfoPlist.strings in Resources */,
+				50CF354917E2006C0072D883 /* Images.xcassets in Resources */,
+				50CF354117E2006C0072D883 /* Credits.rtf in Resources */,
+				50CF354717E2006C0072D883 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,29 +304,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50CF352817E1F4160072D883 /* BCUServiceIdentifiers.m in Sources */,
 				50CF34F717E1F27B0072D883 /* main.m in Sources */,
 				50CF350117E1F27B0072D883 /* BCUViewController.m in Sources */,
 				50CF34FB17E1F27B0072D883 /* BCUAppDelegate.m in Sources */,
+				50CF352517E1F3A60072D883 /* BCUBroadcastController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		50CF350417E1F27B0072D883 /* Sources */ = {
+		50CF352B17E2006C0072D883 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50CF351617E1F27B0072D883 /* BlueCue_iPhoneTests.m in Sources */,
+				509FD89617E201BB00F105C7 /* BCUServiceIdentifiers.m in Sources */,
+				509FD89C17E208BA00F105C7 /* BCUScanController.m in Sources */,
+				50CF353D17E2006C0072D883 /* main.m in Sources */,
+				50CF354417E2006C0072D883 /* BCUAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		50CF350E17E1F27B0072D883 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 50CF34E617E1F27B0072D883 /* BlueCue iPhone */;
-			targetProxy = 50CF350D17E1F27B0072D883 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		50CF34F317E1F27B0072D883 /* InfoPlist.strings */ = {
@@ -283,20 +334,28 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		50CF34FC17E1F27B0072D883 /* Main.storyboard */ = {
+		50CF353917E2006C0072D883 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				50CF34FD17E1F27B0072D883 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		50CF351217E1F27B0072D883 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				50CF351317E1F27B0072D883 /* en */,
+				50CF353A17E2006C0072D883 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		50CF353F17E2006C0072D883 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50CF354017E2006C0072D883 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		50CF354517E2006C0072D883 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50CF354617E2006C0072D883 /* Base */,
+			);
+			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -379,10 +438,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BlueCue iPhone/BlueCue iPhone-Prefix.pch";
 				INFOPLIST_FILE = "BlueCue iPhone/BlueCue iPhone-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1D012C55-3CE2-4EAF-9DB5-6AA3C65DF95D";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -392,60 +455,67 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BlueCue iPhone/BlueCue iPhone-Prefix.pch";
 				INFOPLIST_FILE = "BlueCue iPhone/BlueCue iPhone-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "1D012C55-3CE2-4EAF-9DB5-6AA3C65DF95D";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
-		50CF351D17E1F27B0072D883 /* Debug */ = {
+		50CF355C17E2006C0072D883 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BlueCue iPhone.app/BlueCue iPhone";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BlueCue iPhone/BlueCue iPhone-Prefix.pch";
+				GCC_PREFIX_HEADER = "BlueCue Mac/BlueCue Mac-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "BlueCue iPhoneTests/BlueCue iPhoneTests-Info.plist";
+				INFOPLIST_FILE = "BlueCue Mac/BlueCue Mac-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
-		50CF351E17E1F27B0072D883 /* Release */ = {
+		50CF355D17E2006C0072D883 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BlueCue iPhone.app/BlueCue iPhone";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "BlueCue iPhone/BlueCue iPhone-Prefix.pch";
-				INFOPLIST_FILE = "BlueCue iPhoneTests/BlueCue iPhoneTests-Info.plist";
+				GCC_PREFIX_HEADER = "BlueCue Mac/BlueCue Mac-Prefix.pch";
+				INFOPLIST_FILE = "BlueCue Mac/BlueCue Mac-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		50CF34E217E1F27B0072D883 /* Build configuration list for PBXProject "BlueCue iPhone" */ = {
+		50CF34E217E1F27B0072D883 /* Build configuration list for PBXProject "BlueCue" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				50CF351717E1F27B0072D883 /* Debug */,
@@ -461,14 +531,16 @@
 				50CF351B17E1F27B0072D883 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		50CF351C17E1F27B0072D883 /* Build configuration list for PBXNativeTarget "BlueCue iPhoneTests" */ = {
+		50CF355B17E2006C0072D883 /* Build configuration list for PBXNativeTarget "BlueCue Mac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				50CF351D17E1F27B0072D883 /* Debug */,
-				50CF351E17E1F27B0072D883 /* Release */,
+				50CF355C17E2006C0072D883 /* Debug */,
+				50CF355D17E2006C0072D883 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
