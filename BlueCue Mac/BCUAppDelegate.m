@@ -14,7 +14,10 @@
 @property (nonatomic, strong) BCUScanController *scanController;
 @property (nonatomic, weak) IBOutlet NSButton *scanToggleButton;
 @property (nonatomic, weak) IBOutlet NSTextField *responseField;
+@property (nonatomic, weak) IBOutlet NSImageCell *imageCell;
 @property (nonatomic, strong) NSMutableSet *foundDevices;
+//@property (nonatomic, strong) iTunesApplication *iTunes;
+//@property (nonatomic, strong) iTunesLibraryPlaylist *iTunesLibraryPlaylist;
 
 - (IBAction)toggleScanning:(id)sender;
 
@@ -27,6 +30,13 @@
 	// Insert code here to initialize your application
 	self.scanController = [[BCUScanController alloc] initWithDelegate:self queue:dispatch_get_main_queue()];
 	self.foundDevices = [NSMutableSet new];
+	[self.scanController startScanning];
+}
+
+
+- (void)applicationWillTerminate:(NSNotification *)notification
+{
+	[self.scanController stopScanning];
 }
 
 - (IBAction)toggleScanning:(id)sender
@@ -83,17 +93,29 @@
 	NSLog(@"info = %@, device = %@", info, device);
 	NSString *string = [NSString stringWithFormat:@"%@\r\n%@", [info description], [[NSDate date] description]];
 	[self.responseField setStringValue:string];
+	if(![info isEqual:[NSNull null]])
+	{
+		[self playSongWithArtist:info[@"artist"] title:info[@"title"] playbackTime:[info[@"current_playback_time"] doubleValue]];
+	}
 	
-	
-	NSString *script = [NSString stringWithFormat:@"tell application \"iTunes\"\n\tplay (every track of playlist 1 whose name is \"%@\" and artist is \"%@\")\nset player position to %ld\nend tell",info[@"title"], info[@"artist"], (long)[info[@"current_playback_time"] integerValue]];
-	NSAppleScript *appleScript = [[NSAppleScript alloc] initWithSource:script];
-	NSDictionary *returnDict = nil;
-	[appleScript executeAndReturnError:&returnDict];
 }
 
 - (BOOL)scanController:(BCUScanController *)scanController shouldConnectToPeripheral:(CFUUIDRef)deviceUUID
 {
-	return [self.foundDevices containsObject:CFBridgingRelease(CFUUIDCreateString(NULL, deviceUUID))];
+	return YES;
+}
+
+
+- (void)playSongWithArtist:(NSString *)artist title:(NSString *)title playbackTime:(double)time
+{
+	NSString *script = [NSString stringWithFormat:@"tell application \"iTunes\"\ncopy (a reference to (current track)) to current_track\nset trks to (tracks of playlist 1 whose name = \"%@\" and artist is \"%@\")\nset trk to item 1 of trks\nif current_track is {} or trk is not equal to current_track\nplay trk\nset player position to %f\nif exists artworks of trk then\nreturn get data of artwork 1 of trk\nend if\nend if\nend tell",title, artist, time];
+	NSAppleScript *appleScript = [[NSAppleScript alloc] initWithSource:script];
+	NSDictionary *returnDict = nil;
+	NSAppleEventDescriptor *eventDescriptor = [appleScript executeAndReturnError:&returnDict];
+	
+	NSImage *albumArtImage = [[NSImage alloc] initWithData:[eventDescriptor data]];
+	self.imageCell.image = albumArtImage;
+
 }
 
 @end

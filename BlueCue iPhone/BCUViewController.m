@@ -40,6 +40,15 @@
 	[self updateNowPlaying];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+	[super viewDidAppear:animated];
+	if(![self.broadcastController isBroadcasting])
+	{
+		[self.broadcastController startBroadcasting];
+	}
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
 	[super viewWillDisappear:animated];

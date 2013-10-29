@@ -20,18 +20,12 @@
 @property (nonatomic, strong) CBMutableCharacteristic *notifyNowPlayingChangedCharacteristic;
 @property (nonatomic, strong) CBMutableService *bcuService;
 @property (nonatomic, strong) dispatch_queue_t bluetoothQueue;
-@property (nonatomic, strong) NSData *dataToSend;
-@property (nonatomic, readwrite) NSInteger sendDataIndex;
+@property (nonatomic, copy) NSData *dataToSend;
 
 @property (nonatomic, strong) NSMutableArray *subscribedCentrals;
 
-@property (nonatomic, strong) NSData *eomBytes;
-
-#define MTU 20
-
 @end
 
-//static NSString const * kBCUBroadcastControllerRestoreIdentifier  = @"797215EF-51E3-4DA3-B0F8-39D6EFA7FDA9";
 
 @implementation BCUBroadcastController
 
@@ -48,13 +42,15 @@
 		self.callbackQueue = queue;
 		self.subscribedCentrals = [[NSMutableArray alloc] init];
 		self.bluetoothQueue = dispatch_queue_create("com.jamiepinkham.bluecue-broadcast", NULL);
-		uint8_t bytes[2] = {
-            0xFF, 0xD9
-        };
-        self.eomBytes = [NSData dataWithBytes:bytes length:2];
 	}
 	return self;
 }
+
+/**
+ 
+Set up services and characteristics on your local peripheral
+ 
+**/
 
 - (CBMutableService *)bcuService
 {
@@ -89,6 +85,13 @@
 	return self.peripheralManager != nil && [self.peripheralManager isAdvertising];
 }
 
+/**
+ 
+ 
+ Start up a peripheral manager object
+ 
+ */
+
 - (void)startBroadcasting
 {
 	if([self.peripheralManager isAdvertising])
@@ -108,17 +111,37 @@
 	dispatch_async(self.callbackQueue, ^{
 		[self.delegate broadcastControllerDidStopBroadcasting:self];
 	});
+	self.peripheralManager = nil;
 }
+
+/**
+ 
+
+Send updated characteristic values to subscribed centrals
+ 
+
+**/
 
 - (void)setDataForBroadcast:(NSData *)data
 {
 	self.dataToSend = data;
 	NSUInteger bytes[1] = { [data length] };
 	NSData *notifyData = [NSData dataWithBytes:bytes length:sizeof(NSUInteger)];
- 	[self.peripheralManager updateValue:notifyData forCharacteristic:self.notifyNowPlayingChangedCharacteristic onSubscribedCentrals:nil];
+	if(self.notifyNowPlayingChangedCharacteristic)
+	{
+		[self.peripheralManager updateValue:notifyData forCharacteristic:self.notifyNowPlayingChangedCharacteristic onSubscribedCentrals:nil];
+	}
 }
 
 #pragma mark - CBPeripheralManagerDelegate methods
+
+/**
+ 
+ 
+Publish your services and characteristics to your device’s local database
+ 
+ 
+ **/
 
 -(void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral
 {
@@ -138,10 +161,17 @@
 	{
         return;
     }
-    
+	
 	[self.peripheralManager addService:self.bcuService];
-	[self.peripheralManager startAdvertising:@{ CBAdvertisementDataServiceUUIDsKey : @[BCUServiceUUID()] }];
+    
 }
+
+/**
+ 
+ 
+ Advertise your services
+  
+*/
 
 - (void)peripheralManager:(CBPeripheralManager *)peripheral didAddService:(CBService *)service error:(NSError *)error
 {
@@ -149,6 +179,13 @@
 	{
         NSLog(@"Error publishing service: %@", [error localizedDescription]);
     }
+	else
+	{
+		if([service.UUID isEqual:BCUServiceUUID()])
+		{
+			[self.peripheralManager startAdvertising:@{ CBAdvertisementDataServiceUUIDsKey : @[BCUServiceUUID()] }];
+		}
+	}
 }
 
 - (void)peripheralManagerDidStartAdvertising:(CBPeripheralManager *)peripheral error:(NSError *)error
@@ -175,9 +212,24 @@
 	if([characteristic.UUID isEqual:BCUNotifyNowPlayingChangedCharacteristicUUID()])
 	{
 		NSLog(@"central subscribed = %@", [central.identifier description]);
+		[self.peripheralManager stopAdvertising];
 	}
 }
 
+- (void)peripheralManager:(CBPeripheralManager *)peripheral central:(CBCentral *)central didUnsubscribeFromCharacteristic:(CBCharacteristic *)characteristic
+{
+	if([characteristic.UUID isEqual:BCUNotifyNowPlayingChangedCharacteristicUUID()])
+	{
+		[self.peripheralManager startAdvertising:@{ CBAdvertisementDataServiceUUIDsKey : @[BCUServiceUUID()] }];
+	}
+}
+
+
+/**
+ 
+ Respond to read and write requests from a connected central
+ 
+ */
 
 - (void)peripheralManager:(CBPeripheralManager *)peripheral didReceiveReadRequest:(CBATTRequest *)request
 {
@@ -209,89 +261,6 @@
 	});
 }
 
-- (void)updateNowPlaying
-{
-	NSDictionary *response = nil;
-	MPMusicPlayerController *ipod = [MPMusicPlayerController iPodMusicPlayer];
-	MPMediaItem *item = [ipod nowPlayingItem];
-	if(item)
-	{
-		response = @{@"device_name" : [[UIDevice currentDevice] name], 
-					 @"now_playing": @{MPMediaItemPropertyArtist : ([item valueForProperty:MPMediaItemPropertyArtist] != nil ? [item valueForProperty:MPMediaItemPropertyArtist]  : [NSNull null]),
-										MPMediaItemPropertyTitle : ([item valueForProperty:MPMediaItemPropertyTitle] != nil ? [item valueForProperty:MPMediaItemPropertyTitle] : [NSNull null]),
-										MPMediaItemPropertyAlbumTitle : ([item valueForProperty:MPMediaItemPropertyAlbumTitle] != nil ? [item valueForProperty:MPMediaItemPropertyAlbumTitle] : [NSNull null]),
-										@"repeat_mode" : @([ipod repeatMode]),
-										@"shuffle_mode" : @([ipod shuffleMode]),
-										@"current_playback_time" : @([ipod currentPlaybackTime]),
-										}
-					  };
-		NSLog(@"response = %@", response);
-	}
-	else
-	{
-		response = @{@"device_name" : [[UIDevice currentDevice] name], @"now_playing":[NSNull null]};
-	}
-	
-	NSData *jsonData = [NSJSONSerialization dataWithJSONObject:response options:0 error:nil];
-	self.dataToSend = jsonData;
-}
-
-//- (void)writeDataToCentral:(CBCentral *)central
-//{
-//	NSArray *centrals = nil;
-//	if(central)
-//	{
-//		centrals = @[central];
-//	}
-//	NSLog(@"writing data");
-//	static BOOL sendingEOM = NO;
-//	if(sendingEOM)
-//	{
-//		BOOL didSend = [self.peripheralManager updateValue:self.eomBytes forCharacteristic:self.nowPlayingCharacteristic onSubscribedCentrals:centrals];
-//		
-//		if(didSend)
-//		{
-//			sendingEOM = NO;
-//		}
-//		
-//	}
-//	
-//	if(self.sendDataIndex >= self.dataToSend.length)
-//	{
-//		return;
-//	}
-//	
-//	BOOL didSend = YES;
-//	while (didSend)
-//	{
-//		NSInteger amountToSend = self.dataToSend.length - self.sendDataIndex;
-//		if(amountToSend > MTU)
-//		{
-//			amountToSend = MTU;
-//		}
-//		
-//		NSData *chunk = [NSData dataWithBytes:self.dataToSend.bytes + self.sendDataIndex length:amountToSend];
-//		didSend = [self.peripheralManager updateValue:chunk forCharacteristic:self.nowPlayingCharacteristic onSubscribedCentrals:centrals];
-//		if(!didSend)
-//		{
-//			return;
-//		}
-//		
-//		NSLog(@"wrote chunk = %@", [[NSString alloc] initWithData:chunk encoding:NSUTF8StringEncoding]);
-//		
-//		self.sendDataIndex += amountToSend;
-//		if(self.sendDataIndex >= self.dataToSend.length)
-//		{
-//			sendingEOM = YES;
-//			BOOL eomSent = [self.peripheralManager updateValue:self.eomBytes forCharacteristic:self.nowPlayingCharacteristic onSubscribedCentrals:centrals];
-//			if(eomSent)
-//			{
-//				sendingEOM = NO;
-//			}
-//			return;
-//		}
-//	}
-//}
 
 
 @end

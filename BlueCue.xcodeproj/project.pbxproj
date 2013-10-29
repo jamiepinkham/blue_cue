@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5017C6BD1803531700F39519 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5017C6BC1803531700F39519 /* ScriptingBridge.framework */; };
 		505B64FB17E291D0002A0362 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 505B64FA17E291D0002A0362 /* CoreLocation.framework */; };
 		509FD89317E2016900F105C7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 509FD89217E2016900F105C7 /* Cocoa.framework */; };
 		509FD89517E201A900F105C7 /* IOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 509FD89417E201A900F105C7 /* IOBluetooth.framework */; };
@@ -34,13 +35,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5017C6BC1803531700F39519 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/ScriptingBridge.framework; sourceTree = DEVELOPER_DIR; };
 		505B64FA17E291D0002A0362 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		505B64FC17E2BE62002A0362 /* iTunes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunes.h; sourceTree = "<group>"; };
 		509FD89217E2016900F105C7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		509FD89417E201A900F105C7 /* IOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetooth.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/IOBluetooth.framework; sourceTree = DEVELOPER_DIR; };
 		509FD89A17E208BA00F105C7 /* BCUScanController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCUScanController.h; sourceTree = "<group>"; };
 		509FD89B17E208BA00F105C7 /* BCUScanController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCUScanController.m; sourceTree = "<group>"; };
-		50CF34E717E1F27B0072D883 /* BlueCue iPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BlueCue iPhone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		50CF34E717E1F27B0072D883 /* BlueCue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueCue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50CF34EA17E1F27B0072D883 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		50CF34EC17E1F27B0072D883 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		50CF34EE17E1F27B0072D883 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -94,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5017C6BD1803531700F39519 /* ScriptingBridge.framework in Frameworks */,
 				509FD89517E201A900F105C7 /* IOBluetooth.framework in Frameworks */,
 				509FD89317E2016900F105C7 /* Cocoa.framework in Frameworks */,
 			);
@@ -117,7 +119,7 @@
 		50CF34E817E1F27B0072D883 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				50CF34E717E1F27B0072D883 /* BlueCue iPhone.app */,
+				50CF34E717E1F27B0072D883 /* BlueCue.app */,
 				50CF352F17E2006C0072D883 /* BlueCue Mac.app */,
 			);
 			name = Products;
@@ -126,6 +128,7 @@
 		50CF34E917E1F27B0072D883 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5017C6BC1803531700F39519 /* ScriptingBridge.framework */,
 				505B64FA17E291D0002A0362 /* CoreLocation.framework */,
 				509FD89417E201A900F105C7 /* IOBluetooth.framework */,
 				509FD89217E2016900F105C7 /* Cocoa.framework */,
@@ -180,7 +183,6 @@
 		50CF353617E2006C0072D883 /* BlueCue Mac */ = {
 			isa = PBXGroup;
 			children = (
-				505B64FC17E2BE62002A0362 /* iTunes.h */,
 				50CF354217E2006C0072D883 /* BCUAppDelegate.h */,
 				50CF354317E2006C0072D883 /* BCUAppDelegate.m */,
 				50CF354517E2006C0072D883 /* MainMenu.xib */,
@@ -221,7 +223,7 @@
 			);
 			name = "BlueCue iPhone";
 			productName = "BlueCue iPhone";
-			productReference = 50CF34E717E1F27B0072D883 /* BlueCue iPhone.app */;
+			productReference = 50CF34E717E1F27B0072D883 /* BlueCue.app */;
 			productType = "com.apple.product-type.application";
 		};
 		50CF352E17E2006C0072D883 /* BlueCue Mac */ = {
@@ -395,6 +397,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -428,6 +431,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -444,8 +448,8 @@
 				GCC_PREFIX_HEADER = "BlueCue iPhone/BlueCue iPhone-Prefix.pch";
 				INFOPLIST_FILE = "BlueCue iPhone/BlueCue iPhone-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1D012C55-3CE2-4EAF-9DB5-6AA3C65DF95D";
+				PRODUCT_NAME = BlueCue;
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -461,8 +465,8 @@
 				GCC_PREFIX_HEADER = "BlueCue iPhone/BlueCue iPhone-Prefix.pch";
 				INFOPLIST_FILE = "BlueCue iPhone/BlueCue iPhone-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1D012C55-3CE2-4EAF-9DB5-6AA3C65DF95D";
+				PRODUCT_NAME = BlueCue;
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

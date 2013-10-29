@@ -14,9 +14,7 @@ extern CBUUID* BCUServiceUUID(void)
 {
 	if(_serviceUUID == nil)
 	{
-		_serviceUUID = [CBUUID UUIDWithString:@"931C"];
-//		_serviceUUID = [CBUUID UUIDWithString:@"797215EF-51E3-4DA3-B0F8-39D6EFA7FDA9"];
-//		_serviceUUID = [CBUUID UUIDWithString:@"4B3960E8-AA92-4EB8-8F0B-2D2C049C5CB4"];
+		_serviceUUID = [CBUUID UUIDWithString:@"797215EF-51E3-4DA3-B0F8-39D6EFA7FDA9"];
 	}
 	return _serviceUUID;
 }

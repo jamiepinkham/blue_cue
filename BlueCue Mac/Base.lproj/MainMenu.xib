@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1080" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4510"/>
@@ -651,13 +651,13 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="498" height="343"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1418"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <view key="contentView" id="372">
                 <rect key="frame" x="0.0" y="0.0" width="498" height="343"/>
-                <autoresizingMask key="autoresizingMask"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RO3-j5-tlx">
-                        <rect key="frame" x="14" y="295" width="69" height="32"/>
+                    <button hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RO3-j5-tlx">
+                        <rect key="frame" x="22" y="295" width="69" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="push" title="Scan" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NBR-BP-o9D">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -668,10 +668,11 @@
                         </connections>
                     </button>
                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OV6-KG-cmc">
-                        <rect key="frame" x="20" y="20" width="458" height="274"/>
+                        <rect key="frame" x="194" y="20" width="287" height="274"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="274" id="nEV-5v-HZB"/>
+                            <constraint firstAttribute="width" constant="281" id="dCm-6M-6Nl"/>
+                            <constraint firstAttribute="height" constant="274" id="vht-v7-iJp"/>
                         </constraints>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" enabled="NO" allowsUndo="NO" sendsActionOnEndEditing="YES" state="on" placeholderString="Now Playing Response" id="N6s-km-h8H">
                             <font key="font" metaFont="system"/>
@@ -679,19 +680,30 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="q1L-af-O6R">
+                        <rect key="frame" x="20" y="139" width="169" height="155"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="169" id="TXQ-9P-i7N"/>
+                            <constraint firstAttribute="height" constant="155" id="zle-iZ-kz1"/>
+                        </constraints>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="Image" id="Eb9-1v-HwX"/>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="OV6-KG-cmc" firstAttribute="top" secondItem="RO3-j5-tlx" secondAttribute="bottom" constant="8" symbolic="YES" id="3hD-ud-yWn"/>
-                    <constraint firstAttribute="bottom" secondItem="OV6-KG-cmc" secondAttribute="bottom" constant="20" symbolic="YES" id="Nmk-WK-LV9"/>
-                    <constraint firstAttribute="trailing" secondItem="OV6-KG-cmc" secondAttribute="trailing" constant="20" symbolic="YES" id="RnL-J9-RrB"/>
-                    <constraint firstItem="RO3-j5-tlx" firstAttribute="leading" secondItem="372" secondAttribute="leading" constant="20" symbolic="YES" id="TIf-Zh-Q7Z"/>
-                    <constraint firstItem="RO3-j5-tlx" firstAttribute="top" secondItem="372" secondAttribute="top" constant="20" symbolic="YES" id="chd-4n-PKo"/>
-                    <constraint firstItem="OV6-KG-cmc" firstAttribute="leading" secondItem="372" secondAttribute="leading" constant="20" symbolic="YES" id="kSu-Y7-DMl"/>
+                    <constraint firstAttribute="bottom" secondItem="OV6-KG-cmc" secondAttribute="bottom" constant="20" symbolic="YES" id="0iu-e3-4bN"/>
+                    <constraint firstItem="q1L-af-O6R" firstAttribute="leading" secondItem="RO3-j5-tlx" secondAttribute="leading" constant="-8" id="399-or-vB0"/>
+                    <constraint firstItem="OV6-KG-cmc" firstAttribute="leading" secondItem="q1L-af-O6R" secondAttribute="trailing" constant="8" symbolic="YES" id="5PX-es-xeN"/>
+                    <constraint firstItem="RO3-j5-tlx" firstAttribute="top" secondItem="372" secondAttribute="top" constant="20" symbolic="YES" id="GNq-qB-UOV"/>
+                    <constraint firstAttribute="trailing" secondItem="OV6-KG-cmc" secondAttribute="trailing" constant="20" symbolic="YES" id="ZdU-hC-aWV"/>
+                    <constraint firstItem="q1L-af-O6R" firstAttribute="leading" secondItem="372" secondAttribute="leading" constant="20" symbolic="YES" id="gcm-08-r3b"/>
+                    <constraint firstItem="q1L-af-O6R" firstAttribute="top" secondItem="RO3-j5-tlx" secondAttribute="bottom" constant="8" id="iUd-Bn-fRb"/>
                 </constraints>
             </view>
         </window>
         <customObject id="494" customClass="BCUAppDelegate">
             <connections>
+                <outlet property="imageCell" destination="Eb9-1v-HwX" id="pls-KH-ypr"/>
                 <outlet property="responseField" destination="OV6-KG-cmc" id="qhg-Us-Tts"/>
                 <outlet property="scanToggleButton" destination="RO3-j5-tlx" id="77n-Bv-H47"/>
                 <outlet property="window" destination="371" id="532"/>
@@ -699,4 +711,7 @@
         </customObject>
         <customObject id="420" customClass="NSFontManager"/>
     </objects>
+    <resources>
+        <image name="Image" width="512" height="512"/>
+    </resources>
 </document>

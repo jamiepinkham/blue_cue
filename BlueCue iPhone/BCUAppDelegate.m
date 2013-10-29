@@ -17,7 +17,7 @@
 	
 	BCUViewController *vc = [[BCUViewController alloc] initWithNibName:@"BCUViewController" bundle:nil];
 	
-	self.window.rootViewController= vc;
+	self.window.rootViewController = vc;
 	[self.window makeKeyAndVisible];
     
 	return YES;

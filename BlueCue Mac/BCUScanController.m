@@ -19,9 +19,7 @@
 @property (nonatomic, strong) CBCharacteristic * notifyNowPlayingChangedCharacteristic;
 @property (nonatomic, strong) CBCharacteristic *nowPlayingCharacteristic;
 @property (nonatomic, strong) dispatch_queue_t bluetoothQueue;
-@property (nonatomic, strong) NSMutableArray *inRangePeripherals;
-@property (nonatomic, strong) NSMutableArray *scanningPeripherals;
-@property (nonatomic, strong) NSMutableSet *informedPeripherals;
+@property (nonatomic, strong) NSMutableSet *connectedPeripherals;
 
 @property (nonatomic, strong) NSMutableData *jsonData;
 @property (nonatomic, strong) NSData *eomBytes;
@@ -46,24 +44,24 @@
             0xFF, 0xD9
         };
         self.eomBytes = [NSData dataWithBytes:bytes length:2];
-		self.informedPeripherals = [NSMutableSet new];
+		self.connectedPeripherals = [NSMutableSet new];
 	}
 	return self;
 }
 
 - (void)startScanning
 {
-	self.inRangePeripherals = [NSMutableArray new];
-	self.scanningPeripherals = [NSMutableArray new];
 	self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:self.bluetoothQueue];
 }
 
 - (void)stopScanning
 {
+	for(CBPeripheral *peripheral in self.connectedPeripherals)
+	{
+		[self.centralManager cancelPeripheralConnection:peripheral];
+	}
 	self.notifyNowPlayingChangedCharacteristic = nil;
 	self.nowPlayingCharacteristic = nil;
-	self.inRangePeripherals = nil;
-	self.scanningPeripherals = nil;
 	[self.centralManager stopScan];
 	dispatch_async(self.callbackQueue, ^{
 		[self.delegate scanControllerStoppedScanningForDevices:self];
@@ -110,6 +108,12 @@
 
 #pragma mark - CBCentralManagerDelegate methods
 
+/*
+ 
+ START UP A CENTRAL MANAGER
+ 
+ */
+
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central
 {
 	
@@ -123,43 +127,45 @@
 		return;
 	}
 	
-	[self.centralManager scanForPeripheralsWithServices:nil options:@{CBCentralManagerScanOptionAllowDuplicatesKey : @YES}];
+	[self.centralManager scanForPeripheralsWithServices:@[BCUServiceUUID()] options:@{CBCentralManagerScanOptionAllowDuplicatesKey : @NO}];
 	dispatch_async(self.callbackQueue, ^{
 		[self.delegate scanControllerStartedScanningForDevices:self];
 	});
 	self.scanning = YES;
 }
 
+/*
+ 
+ DISCOVER SERVICES
+ 
+ */
+
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
 {
 	NSArray *services = [advertisementData objectForKey:CBAdvertisementDataServiceUUIDsKey];
 	if([services containsObject:BCUServiceUUID()])
 	{
-		if(![self.informedPeripherals containsObject:CFBridgingRelease(CFUUIDCreateString(NULL, peripheral.UUID))])
+		if(![self.connectedPeripherals containsObject:peripheral])
 		{
-			[self.informedPeripherals addObject:CFBridgingRelease(CFUUIDCreateString(NULL, peripheral.UUID))];
-			[self.delegate scanController:self foundDevice:peripheral.UUID];
-		}
-	}
-	if([RSSI integerValue] >= -60)
-	{
-		if(![self.inRangePeripherals containsObject:peripheral])
-		{
-			[self.inRangePeripherals addObject:peripheral];
-			
-			if(![self.scanningPeripherals containsObject:peripheral])
+			BOOL shouldConnect = [self.delegate scanController:self shouldConnectToPeripheral:peripheral.UUID];
+			if(shouldConnect)
 			{
-				BOOL shouldConnect = [self.delegate scanController:self shouldConnectToPeripheral:peripheral.UUID];
-				if(shouldConnect)
-				{
-					[self.scanningPeripherals addObject:peripheral];
-					[self.centralManager connectPeripheral:peripheral options:nil];
-				}
+				[self.centralManager stopScan];
+				[self.connectedPeripherals addObject:peripheral];
+				[self.centralManager connectPeripheral:peripheral options:nil];
 			}
 		}
+
 	}
+	
 }
 
+
+/*
+ 
+ CONNECT TO A DEVICE
+ 
+ */
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral
 {
 //	[peripheral readRSSI];
@@ -169,16 +175,22 @@
 
 - (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
 {
-	NSLog(@"disconnecting peripheral = %@", CFBridgingRelease(CFUUIDCreateString(NULL, peripheral.UUID)));
-	[self.scanningPeripherals removeObject:peripheral];
-	[self.inRangePeripherals removeObject:peripheral];
+	NSLog(@"disconnecting peripheral = %@, error = %@", CFBridgingRelease(CFUUIDCreateString(NULL, peripheral.UUID)), error);
+	[self.connectedPeripherals removeObject:peripheral];
+	[self.centralManager scanForPeripheralsWithServices:nil options:@{CBCentralManagerScanOptionAllowDuplicatesKey : @NO}];
 }
 
 -(void)centralManager:(CBCentralManager *)central didFailToConnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
 {
-	[self.scanningPeripherals removeObject:peripheral];
 	[self handleFailToConnect:peripheral underlyingError:error];
+	[self.connectedPeripherals removeObject:peripheral];
 }
+
+/*
+ 
+ DISCOVER SERVICES
+
+ */
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error
 {
@@ -214,13 +226,20 @@
 	
 }
 
+
+/*
+ 
+ READING/WRITING/SUBSCRIBING TO CHARACTERISTIC
+ 
+ */
+
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
 {
 	if([characteristic.UUID isEqual:BCUNotifyNowPlayingChangedCharacteristicUUID()])
 	{
 		if(!characteristic.isNotifying)
 		{
-			[self.centralManager cancelPeripheralConnection:peripheral];
+//			[self.centralManager cancelPeripheralConnection:peripheral];
 		}
 			
 	}
@@ -237,7 +256,6 @@
 			if(dict)
 			{
 				[self.delegate scanController:self recievedNowPlayingInfo:dict[@"now_playing"] forDevice:dict[@"device_name"]];
-				[self.scanningPeripherals removeObject:peripheral];
 			}
 			else
 			{
@@ -254,22 +272,6 @@
 	}
 }
 
-
-- (void)peripheralDidUpdateRSSI:(CBPeripheral *)peripheral error:(NSError *)error
-{
-	NSLog(@"rssi = %@",[peripheral RSSI]);
-	NSInteger rssiValue = [[peripheral RSSI] integerValue];
-	if(rssiValue < -70 && peripheral.isConnected)
-	{
-		[self.inRangePeripherals removeObject:peripheral];
-		[self.centralManager cancelPeripheralConnection:peripheral];
-	}
-	double delayInSeconds = 2.0;
-	dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-	dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-		[peripheral readRSSI];
-	});
-}
 
 
 
